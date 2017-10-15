@@ -1,0 +1,9 @@
+.idea/
+resources/public/presentations/node_modules/
+*.iml
+figwheel_server.log
+checkouts/
+out/
+resources/public/js/cljs-dev/
+.DS_Store
+target/
