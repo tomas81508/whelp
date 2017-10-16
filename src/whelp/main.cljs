@@ -11,7 +11,7 @@
     [onyxia.input.mouse-position]
     [onyxia.input.element-hovered]
     [onyxia.output.at-body-root-view]
-    [whelp.view.main]
+    [whelp.view.presentation :as presentation]
     ))
 
 (enable-console-print!)
@@ -28,7 +28,7 @@
 
 (defn render! []
       (render-engine/render!
-        {:view               [whelp.view.main/view]
+        {:view               [presentation/demo]
          :target-element     (js/document.getElementById "app")
          :input-definitions  {"parent-size"     [onyxia.input.parent-size/definition {:should-update? not-paused?}]
                               "mouse-position"  [onyxia.input.mouse-position/definition {:should-update? not-paused?}]

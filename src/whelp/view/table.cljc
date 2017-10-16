@@ -1,4 +1,4 @@
-(ns whelp.view.main
+(ns whelp.view.table
   (:require [whelp.style :as style]))
 
 (def th-style {:padding-left "24px"})
@@ -18,12 +18,13 @@
                         :input-key :hovered-item}]
    :render            (fn [{hovered-item :hovered-item
                             view-state          :view-state}]
-                        [:div {:style {:height      "100%"
-                                       :width       "100%"
+                        [:div {:style {:width       "100%"
                                        :font-family "Roboto, sans-serif"
                                        :background  style/grey-200}}
                          [:div {:style (merge {:margin-left   "72px"
                                                :margin-top    "72px"
+                                               :margin-bottom "72px"
+                                               :margin-right  "72px"
                                                :border-radius "2px"
                                                :display       :inline-block
                                                :background    style/white}
