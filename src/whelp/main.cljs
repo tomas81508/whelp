@@ -16,7 +16,9 @@
 
 (enable-console-print!)
 
-(defonce state-atom (atom {:components {:text-field {:label "Label"}}}))
+(defonce state-atom (atom {:components {:text-field {:label "Label"
+                                                     :placeholder "Placeholder"
+                                                     :helper-text "Some helper text"}}}))
 
 (defn paused?
   []
