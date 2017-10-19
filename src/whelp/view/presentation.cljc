@@ -2,13 +2,10 @@
   (:require [whelp.view.table :as table]
             [whelp.view.text-field :as text-field]))
 
-(defonce component-atom (atom {:label "Some Label"
-                               :value "Some value"}))
-
 (def demo
-  {:render (fn []
+  {:render (fn [{state-atom :state-atom :as input}]
              [:div
-              [table/view]
+              [table/view input]
               [:div {:style {:margin-bottom "20px"}}]
-              [text-field/input-demo]]
+              [text-field/input-demo input]]
              )})
