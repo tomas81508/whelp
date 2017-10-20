@@ -4,8 +4,8 @@
 
 (def demo
   {:render (fn [{state-atom :state-atom :as input}]
-             [:div
+             [:div {:style {:margin "10px"}}
               [table/view input]
-              [:div {:style {:margin-bottom "20px"}}]
+              [:h2 "input"]
               [text-field/input-demo input]]
              )})

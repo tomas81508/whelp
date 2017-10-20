@@ -16,9 +16,13 @@
 
 (enable-console-print!)
 
-(defonce state-atom (atom {:components {:text-field {:label "Label"
-                                                     :placeholder "Placeholder"
-                                                     :helper-text "Some helper text"}}}))
+(defonce state-atom (atom {:components {:text-field {:input {:label "Label for input"
+                                                             :placeholder "Placeholder"
+                                                             :helper-text "Some helper text"}
+                                                     :dropdown {:label "Label for dropdown"
+                                                                :placeholder "Placeholder"
+                                                                :helper-text "Some helper text"
+                                                                :options ["First" "Middle" "Last"]}}}}))
 
 (defn paused?
   []

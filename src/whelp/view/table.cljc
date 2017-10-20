@@ -1,5 +1,7 @@
 (ns whelp.view.table
-  (:require [whelp.style :as style]))
+  (:require [whelp.color :as color]
+            [whelp.style :as style]))
+
 
 (def th-style {:padding-left "24px"})
 
@@ -20,27 +22,27 @@
                             view-state          :view-state}]
                         [:div {:style {:width       "100%"
                                        :font-family "Roboto, sans-serif"
-                                       :background  style/grey-200}}
+                                       :background  color/grey-200}}
                          [:div {:style (merge {:margin-left   "72px"
                                                :margin-top    "72px"
                                                :margin-bottom "72px"
                                                :margin-right  "72px"
                                                :border-radius "2px"
                                                :display       :inline-block
-                                               :background    style/white}
+                                               :background    color/white}
                                               style/z-elevation-2dp)}
                           [:div {:style {:height  "64px"
                                          :padding "16px 0 0 24px"}}
                            [:span {:style {:font-size   "24px"
-                                           :color       "rgba(0, 0, 0, 0.87)"
+                                           :color       color/black-87%
                                            :display     "block"
                                            :line-height "36px"}}
                             "Items"]]
                           [:table {:style {:border-collapse :collapse}}
                            [:thead {:style {:font-size   "12px"
-                                            :color       "rgba(0, 0, 0, 0.54)"
+                                            :color       color/black-54%
                                             :font-weight "500"}}
-                            [:tr {:style {:border-bottom (str "1px solid " style/grey-300)
+                            [:tr {:style {:border-bottom (str "1px solid " color/grey-300)
                                           :height        "56px"}}
                              [:th {:style th-style} [:input {:style {:margin "0"} :type "checkbox"}]]
                              [:th {:style th-style} "Dessert (100g serving)"]
@@ -67,16 +69,16 @@
                                                   :padding-left  "56px"
                                                   :text-align    "right"})} "Iron (%)"]]]
                            [:tbody {:style {:font-size "13px"
-                                            :color     "rgba(0, 0, 0, 0.87)"}}
+                                            :color     color/black-87%}}
                             (map-indexed (fn [index product]
                                            [:tr {:element-hovered-value product
                                                  :style                 (merge {:height "48px"}
                                                                                (when (not= (inc index) (count data))
-                                                                                 {:border-bottom (str "1px solid " style/grey-300)})
+                                                                                 {:border-bottom (str "1px solid " color/grey-300)})
                                                                                (when (contains? (:selected-items view-state) product)
-                                                                                 {:background style/grey-100})
+                                                                                 {:background color/grey-100})
                                                                                (when (= hovered-item product)
-                                                                                 {:background style/grey-200}))}
+                                                                                 {:background color/grey-200}))}
                                             [:td {:style td-style} [:input {:style     {:margin "0"}
                                                                             :type      "checkbox"
                                                                             :checked   (contains? (:selected-items view-state) product)
