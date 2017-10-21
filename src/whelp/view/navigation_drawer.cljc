@@ -30,16 +30,22 @@
 
 (def navigation-drawer-demo
   {:render (fn [{state-atom :state-atom}]
-             [:div {:style {:width            "512px"
-                            :height           "512px"
-                            :display          "flex"
-                            :align-items      "center"
-                            :justify-content  "center"
-                            :background-color color/grey-200}}
-              [:div {:style {:width      "256px"
-                             :background color/white}}
-               [navigation-drawer {:width  "256px"          ;; 64*4 (standard increment for tablet)
-                                   :height "320px"
-                                   :items  [{:title "Short title"}
-                                            {:title "A little longer title"}
-                                            {:title "Another title"}]}]]])})
+             [:div {:style {:display     "flex"
+                            :align-items "top"}}
+              [:div {:style {:width        "360px"
+                             :margin-right "40px"}}]
+              [:div {:style {:width            "720px"
+                             :height           "720px"
+                             :padding          "64px 64px 64px 64px"
+                             :box-sizing       "border-box"
+                             :display          "flex"
+                             :align-items      "center"
+                             :justify-content  "center"
+                             :background-color color/grey-200}}
+               [:div {:style {:width      "256px"
+                              :background color/white}}
+                [navigation-drawer {:width  "256px"         ;; 64*4 (standard increment for tablet)
+                                    :height "512px"
+                                    :items  [{:title "Short title"}
+                                             {:title "A little longer title"}
+                                             {:title "Another title"}]}]]]])})

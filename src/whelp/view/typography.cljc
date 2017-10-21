@@ -11,3 +11,14 @@
                            :color       color
                            :margin      "0 0 30px 0"}}
               children])})
+
+(def title
+  {:render (fn [{children :children}]
+             [:h1 {:style {:font-family "Roboto, sans-serif"
+                           :color       "#212121"
+                           :font-size   "20px"
+                           :font-weight "400"
+                           :line-height "32px"
+                           :margin      "0 0 20px 0"
+                           :max-width   "940px"}}
+              children])})
