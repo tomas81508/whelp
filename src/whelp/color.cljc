@@ -3,6 +3,7 @@
 ;; Colors
 ;; https://material.io/guidelines/style/color.html
 
+(def grey-50 "#FAFAFA")
 (def grey-100 "#F5F5F5")
 (def grey-200 "#EEEEEE")
 (def grey-300 "#E0E0E0")

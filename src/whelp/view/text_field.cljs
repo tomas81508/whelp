@@ -146,11 +146,9 @@
 
 (def input-demo
   {:render (fn [{state-atom :state-atom}]
-             [:div {:style {:margin           "25px"
-                            :background-color color/white}}
-              [:div {:style {:width   "250px"
-                             :margin  "25px"
-                             :display "inline-block"}}
+             [:div {:style {:display     "flex"
+                            :align-items "top"}}
+              [:div {:style {:width "250px"}}
                [input {:label    ":label"
                        :value    (get-in @state-atom [:components :text-field :input :label])
                        :on-input (fn [value]
@@ -168,10 +166,11 @@
                        :error-text (get-in @state-atom [:components :text-field :input :error-text])
                        :on-input   (fn [value]
                                      (swap! state-atom assoc-in [:components :text-field :input :error-text] value))}]]
-              [:div {:style {:width          "250px"
-                             :margin         "25px"
-                             :display        "inline-block"
-                             :vertical-align "top"}}
+              [:div {:style {:background     color/grey-200
+                             :margin-left    "64px"
+                             :padding        "0 64px 0 64px"
+                             :display        "flex"
+                             :flex-direction "column"}}
                [input {:width       "300px"
                        :value       (get-in @state-atom [:components :text-field :input :value])
                        :label       (get-in @state-atom [:components :text-field :input :label])
