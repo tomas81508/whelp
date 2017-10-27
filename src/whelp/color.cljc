@@ -16,7 +16,7 @@
 
 (defn get-color [state level number]
   (let [color (condp = level
-                :primary :orange
+                :primary :blue
                 :secendary :indigo
                 level)]
     (condp = color

@@ -7,3 +7,4 @@ out/
 resources/public/js/cljs-dev/
 .DS_Store
 target/
+pom.xml
