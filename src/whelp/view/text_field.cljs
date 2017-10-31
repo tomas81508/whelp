@@ -1,7 +1,8 @@
 (ns whelp.view.text-field
   (:require [whelp.color :as color]
             [whelp.style :as style]
-            [whelp.view.typography :refer [title]]))
+            [whelp.view.typography :refer [title]]
+            [whelp.view.doc :as doc]))
 
 (def input
   {:get-initial-state (fn []
@@ -148,83 +149,61 @@
 (def input-demo
   {:render (fn [{state-atom :state-atom}]
              [:div
-              [:div {:style {:display     "flex"
-                             :align-items "top"}}
-               [:div {:style {:width          "360px"
-                              :margin-right   "40px"
-                              :display        "flex"
-                              :flex-direction "column"}}
-                [title {} "Text field"]
-                [input {:label    ":label"
-                        :value    (get-in @state-atom [:components :text-field :input :label])
-                        :on-input (fn [value]
-                                    (swap! state-atom assoc-in [:components :text-field :input :label] value))}]
-                [input {:label    ":placeholder"
-                        :value    (get-in @state-atom [:components :text-field :input :placeholder])
-                        :on-input (fn [value]
-                                    (swap! state-atom assoc-in [:components :text-field :input :placeholder] value))}]
-                [input {:label    ":helper-text"
-                        :value    (get-in @state-atom [:components :text-field :input :helper-text])
-                        :on-input (fn [value]
-                                    (swap! state-atom assoc-in [:components :text-field :input :helper-text] value))}]
-                [input {:label      ":error-text"
-                        :value      (get-in @state-atom [:components :text-field :input :error-text])
-                        :error-text (get-in @state-atom [:components :text-field :input :error-text])
-                        :on-input   (fn [value]
-                                      (swap! state-atom assoc-in [:components :text-field :input :error-text] value))}]]
-               [:div {:style {:background      color/grey-200
-                              :width           "360px"
-                              :height          "360px"
-                              :display         "flex"
-                              :align-items     "center"
-                              :justify-content "center"}}
+              [:div
+               [doc/module-1
+                [:div {:style {:display        "flex"
+                               :flex-direction "column"}}
+                 [title "Text field"]
+                 [input {:label    ":label"
+                         :value    (get-in @state-atom [:components :text-field :input :label])
+                         :on-input (fn [value]
+                                     (swap! state-atom assoc-in [:components :text-field :input :label] value))}]
+                 [input {:label    ":placeholder"
+                         :value    (get-in @state-atom [:components :text-field :input :placeholder])
+                         :on-input (fn [value]
+                                     (swap! state-atom assoc-in [:components :text-field :input :placeholder] value))}]
+                 [input {:label    ":helper-text"
+                         :value    (get-in @state-atom [:components :text-field :input :helper-text])
+                         :on-input (fn [value]
+                                     (swap! state-atom assoc-in [:components :text-field :input :helper-text] value))}]
+                 [input {:label      ":error-text"
+                         :value      (get-in @state-atom [:components :text-field :input :error-text])
+                         :error-text (get-in @state-atom [:components :text-field :input :error-text])
+                         :on-input   (fn [value]
+                                       (swap! state-atom assoc-in [:components :text-field :input :error-text] value))}]]]
+               [doc/showcase-1
                 [input {:width       "232px"
                         :value       (get-in @state-atom [:components :text-field :input :value])
                         :label       (get-in @state-atom [:components :text-field :input :label])
                         :placeholder (get-in @state-atom [:components :text-field :input :placeholder])
                         :error-text  (get-in @state-atom [:components :text-field :input :error-text])
                         :helper-text (get-in @state-atom [:components :text-field :input :helper-text])
-                        :on-input    (fn [value] (swap! state-atom assoc-in [:components :text-field :input :value] value))}]]
-               (comment [:div {:style {:margin-top "16px"}}
-                         [input {:width       "100%"
-                                 :value       (get-in @state-atom [:components :text-field :dropdown :value])
-                                 :label       (get-in @state-atom [:components :text-field :dropdown :label])
-                                 :placeholder (get-in @state-atom [:components :text-field :dropdown :placeholder])
-                                 :error-text  (get-in @state-atom [:components :text-field :dropdown :error-text])
-                                 :helper-text (get-in @state-atom [:components :text-field :dropdown :helper-text])
-                                 :options     (get-in @state-atom [:components :text-field :dropdown :options])
-                                 :on-change   (fn [value] (swap! state-atom assoc-in [:components :text-field :dropdown :value] value))}]])]
-              [:div {:style {:display     "flex"
-                             :align-items "top"
-                             :margin-top  "100px"}}
-               [:div {:style {:width          "360px"
-                              :margin-right   "40px"
-                              :display        "flex"
-                              :flex-direction "column"}}
-                [title {} "Dropdown"]
-                [input {:label    ":label"
-                        :value    (get-in @state-atom [:components :text-field :input :label])
-                        :on-input (fn [value]
-                                    (swap! state-atom assoc-in [:components :text-field :input :label] value))}]
-                [input {:label    ":placeholder"
-                        :value    (get-in @state-atom [:components :text-field :input :placeholder])
-                        :on-input (fn [value]
-                                    (swap! state-atom assoc-in [:components :text-field :input :placeholder] value))}]
-                [input {:label    ":helper-text"
-                        :value    (get-in @state-atom [:components :text-field :input :helper-text])
-                        :on-input (fn [value]
-                                    (swap! state-atom assoc-in [:components :text-field :input :helper-text] value))}]
-                [input {:label      ":error-text"
-                        :value      (get-in @state-atom [:components :text-field :input :error-text])
-                        :error-text (get-in @state-atom [:components :text-field :input :error-text])
-                        :on-input   (fn [value]
-                                      (swap! state-atom assoc-in [:components :text-field :input :error-text] value))}]]
-               [:div {:style {:background      color/grey-200
-                              :width           "360px"
-                              :height          "360px"
-                              :display         "flex"
-                              :align-items     "center"
-                              :justify-content "center"}}
+                        :on-input    (fn [value] (swap! state-atom assoc-in [:components :text-field :input :value] value))}]]]
+
+
+              [doc/section
+               [doc/module-1
+                [:div {:style {:display        "flex"
+                               :flex-direction "column"}}
+                 [title "Dropdown"]
+                 [input {:label    ":label"
+                         :value    (get-in @state-atom [:components :text-field :input :label])
+                         :on-input (fn [value]
+                                     (swap! state-atom assoc-in [:components :text-field :input :label] value))}]
+                 [input {:label    ":placeholder"
+                         :value    (get-in @state-atom [:components :text-field :input :placeholder])
+                         :on-input (fn [value]
+                                     (swap! state-atom assoc-in [:components :text-field :input :placeholder] value))}]
+                 [input {:label    ":helper-text"
+                         :value    (get-in @state-atom [:components :text-field :input :helper-text])
+                         :on-input (fn [value]
+                                     (swap! state-atom assoc-in [:components :text-field :input :helper-text] value))}]
+                 [input {:label      ":error-text"
+                         :value      (get-in @state-atom [:components :text-field :input :error-text])
+                         :error-text (get-in @state-atom [:components :text-field :input :error-text])
+                         :on-input   (fn [value]
+                                       (swap! state-atom assoc-in [:components :text-field :input :error-text] value))}]]]
+               [doc/showcase-1
                 [input {:width       "232px"
                         :value       (get-in @state-atom [:components :text-field :dropdown :value])
                         :label       (get-in @state-atom [:components :text-field :dropdown :label])

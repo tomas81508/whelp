@@ -1,15 +1,19 @@
 (ns whelp.view.navigation-drawer
   (:require [whelp.color :as color]
-            [whelp.style :as style]))
+            [whelp.style :as style]
+            [whelp.view.doc :as doc]))
 
 (def navigation-drawer
   {:input  [{:name      "element-hovered"
-             :input-key :hovered-row}]
+             :input-key :hovered-row}
+            {:name      "element-active"
+             :input-key :active-item}]
    :render (fn [{hovered-row :hovered-row
                  view-state  :view-state
                  items       :items
                  width       :width
-                 height      :height}]
+                 height      :height
+                 active-item :active-item}]
              [:div {:style {:width       width
                             :height      height
                             :font-family "Roboto, sans-serif"
@@ -18,30 +22,24 @@
                             :color       color/black-87%
                             :padding-top "8px"}}
               (map (fn [item]
-                     [:div {:style {:height        "48px"
-                                    ;; "Use 16dp horizontal margins on mobile and 24dp on tablet"
-                                    :padding-left  "24px"
-                                    :padding-right "24px"
-                                    :display       "flex"
-                                    :align-items   "center"
-                                    :cursor        "pointer"}}
+                     [:div {:element-active-value item
+                            :style                (merge {:height        "48px"
+                                                          ;; "Use 16dp horizontal margins on mobile and 24dp on tablet"
+                                                          :padding-left  "24px"
+                                                          :padding-right "24px"
+                                                          :display       "flex"
+                                                          :align-items   "center"
+                                                          :cursor        "pointer"}
+                                                         (when (= item active-item)
+                                                           {:background color/grey-200}))}
                       (:title item)])
                    items)])})
 
 (def navigation-drawer-demo
   {:render (fn [{state-atom :state-atom}]
-             [:div {:style {:display     "flex"
-                            :align-items "top"}}
-              [:div {:style {:width        "360px"
-                             :margin-right "40px"}}]
-              [:div {:style {:width            "720px"
-                             :height           "720px"
-                             :padding          "64px 64px 64px 64px"
-                             :box-sizing       "border-box"
-                             :display          "flex"
-                             :align-items      "center"
-                             :justify-content  "center"
-                             :background-color color/grey-200}}
+             [:div
+              [doc/module-1]
+              [doc/showcase-2
                [:div {:style {:width      "256px"
                               :background color/white}}
                 [navigation-drawer {:width  "256px"         ;; 64*4 (standard increment for tablet)

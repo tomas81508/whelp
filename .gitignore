@@ -1,5 +1,5 @@
 .idea/
-resources/public/presentations/node_modules/
+resources/public/js/compiled
 *.iml
 figwheel_server.log
 checkouts/
