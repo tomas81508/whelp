@@ -5,7 +5,8 @@
             [whelp.view.doc :as doc]))
 
 (def paper
-  {:render (fn [{depth :depth}]
+  {:render (fn [{depth :depth
+                 children :children}]
              [:div {:style {:color               "rgba(0, 0, 0, 0.87)"
                             :background-color    "rgb(255, 255, 255)"
                             :transition          "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
@@ -13,6 +14,7 @@
                             :font-family         "Roboto, sans-serif"
                             :tap-highlight-color "rgba(0, 0, 0, 0)"
                             :box-shadow          (condp = depth
+                                                   0 ""
                                                    1 "rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px"
                                                    2 "rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px"
                                                    3 "rgba(0, 0, 0, 0.19) 0px 10px 30px, rgba(0, 0, 0, 0.23) 0px 6px 10px"
@@ -23,7 +25,8 @@
                             :width               "100px"
                             :margin              "20px"
                             :text-align          "center"
-                            :display             "inline-block"}}])})
+                            :display             "inline-block"}}
+              children])})
 
 (def paper-demo
   {:render (fn [{state-atom :state-atom}]
