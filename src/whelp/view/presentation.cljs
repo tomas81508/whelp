@@ -1,5 +1,6 @@
 (ns whelp.view.presentation
   (:require [whelp.color :as color]
+            [whelp.view.paper :as paper]
             [whelp.view.table :as table]
             [whelp.view.text-field :as text-field]
             [whelp.view.navigation-drawer :as navigation-drawer]
@@ -25,13 +26,21 @@
                [:div {:style {:padding-left   "24px"
                               :padding-top    "80px"
                               :padding-bottom "100px"}}
-                [display-1 {:color (color/get-color nil :primary "A700")}
-                 "Data table"]
-                [table/view input]
+                [:div
+                 [display-1 {:color (color/get-color nil :primary "A700")}
+                  "Data table"]
+                 [table/view input]]
+
                 [:div {:style {:padding-top "80px"}}
                  [display-1 {:color (color/get-color nil :primary "A700")}
                   "Input"]
                  [text-field/input-demo input]]
+
+                [:div {:style {:padding-top "80px"}}
+                 [display-1 {:color (color/get-color nil :primary "A700")}
+                  "Papers"]
+                 [paper/paper-demo input]]
+
                 [:div {:style {:padding-top "80px"}}
                  [display-1 {:color (color/get-color nil :primary "A700")}
                   "Navigation drawer"]
