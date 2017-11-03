@@ -22,3 +22,24 @@
                            :margin      "0 0 20px 0"
                            :max-width   "940px"}}
               children])})
+
+(def headline
+  {:render (fn [{children :children}]
+             [:div {:style {:font-family "Roboto, sans-serif"
+                            :color       "#212121"
+                            :font-size   "24px"
+                            :font-weight "normal"
+                            :line-height "32px"
+                            :margin      "0 0 0 0"
+                            :max-width   "940px"}}
+              children])})
+
+(def body-1
+  {:render (fn [{children :children}]
+             [:div {:style {:font-family "Roboto, sans-serif"
+                            :color       "#212121"
+                            :font-size   "14px"
+                            :font-weight "normal"
+                            :margin      "0 0 0 0"
+                            :max-width   "940px"}}
+              children])})

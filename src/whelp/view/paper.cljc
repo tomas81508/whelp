@@ -24,10 +24,9 @@
                                                    4 "rgba(0, 0, 0, 0.25) 0px 14px 45px, rgba(0, 0, 0, 0.22) 0px 10px 18px"
                                                    5 "rgba(0, 0, 0, 0.3) 0px 19px 60px, rgba(0, 0, 0, 0.22) 0px 15px 20px")
                             :border-radius       "2px"
-                            :height              (or height "100%")
+                            :height              (or height "auto")
                             :width               (or width "100%")
                             :margin              (or margin "0px")
-                            :text-align          "center"
                             :display             "inline-block"}}
               children])})
 
