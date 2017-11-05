@@ -6,14 +6,13 @@
             [whelp.view.doc :as doc]))
 
 (def card
-  {:render (fn [{depth           :depth
-                 width           :width
+  {:render (fn [{width           :width
                  height          :height
                  margin          :margin
                  image           :image
                  primary-title   :primary-title
                  supporting-text :supporting-text}]
-             [paper {:depth 3
+             [paper {:elevation 3
                      :width width}
               ;; An optional header
 
