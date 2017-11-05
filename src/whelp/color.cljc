@@ -10,6 +10,7 @@
 
 (def white "#ffffff")
 
+(def black-26% "rgba(0,0,0,0.36)")
 (def black-42% "rgba(0,0,0,0.42)")
 (def black-54% "rgba(0,0,0,0.54)")
 (def black-87% "rgba(0,0,0,0.87)")

@@ -1,5 +1,6 @@
 (ns whelp.view.presentation
   (:require [whelp.color :as color]
+            [whelp.view.button :as button]
             [whelp.view.card :as card]
             [whelp.view.paper :as paper]
             [whelp.view.table :as table]
@@ -41,6 +42,11 @@
                  [display-1 {:color (color/get-color nil :primary "A700")}
                   "Papers"]
                  [paper/paper-demo input]]
+
+                [:div {:style {:padding-top "80px"}}
+                 [display-1 {:color (color/get-color nil :primary "A700")}
+                  "Button"]
+                 [button/button-demo input]]
 
                 [:div {:style {:padding-top "80px"}}
                  [display-1 {:color (color/get-color nil :primary "A700")}

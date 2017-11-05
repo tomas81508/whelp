@@ -31,7 +31,7 @@
 
 
               ;; Supporting text
-              (when primary-title
+              (when supporting-text
                 [:div {:style {:margin "16px 16px 24px 16px"}}
                  [typography/body-1 supporting-text]])
 
