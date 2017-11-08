@@ -21,7 +21,8 @@
                             width           :width
                             on-change       :on-change
                             on-click        :on-click
-                            on-input        :on-input}]
+                            on-input        :on-input
+                            :as             view-input}]
                         (let [width (or width "200px")
                               value? (and value (not= value ""))
                               error? (and error-text (not= error-text ""))
@@ -92,8 +93,8 @@
                                                                (if value?
                                                                  {:color color/black-87%}
                                                                  {:color color/black-42%}))}
-                                            (cond value?
-                                                  {:value value}
+                                            (cond (contains? view-input :value)
+                                                  {:value (or value "")}
 
                                                   selected?
                                                   {:placeholder placeholder}

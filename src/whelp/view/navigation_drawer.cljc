@@ -43,7 +43,8 @@
                    items)])})
 
 (def navigation-drawer-demo
-  {:get-initial-state (fn []
+  {:name              "navigation-drawer-demo"
+   :get-initial-state (fn []
                         {:active-item nil})
    :render            (fn [{state-atom :state-atom}]
                         [:div

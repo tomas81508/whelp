@@ -5,8 +5,8 @@
     ;; Possible DOM engines:
     ;; - onyxia.engine.react
     ;; - onyxia.engine.inferno
-    [onyxia.engine.inferno :as render-engine]
-    ;[onyxia.engine.react :as render-engine]
+    ;[onyxia.engine.inferno :as render-engine]
+    [onyxia.engine.react :as render-engine]
     [onyxia.input.parent-size]
     [onyxia.input.mouse-position]
     [onyxia.input.element-hovered]

@@ -5,7 +5,8 @@
             [whelp.view.doc :as doc]))
 
 (def paper
-  {:render (fn [{elevation    :elevation
+  {:name "paper"
+   :render (fn [{elevation    :elevation
                  rounded  :rounded
                  circle   :circle
                  width    :width

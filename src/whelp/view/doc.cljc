@@ -5,12 +5,14 @@
 (def module-size-2 "760px")
 
 (def section
-  {:render (fn [{children :children}]
+  {:name   "section"
+   :render (fn [{children :children}]
              [:section {:style {:margin-top "60px"}}
               children])})
 
-(def module
-  {:render (fn [{children :children
+(def module-1
+  {:name   "module-1"
+   :render (fn [{children :children
                  style    :style}]
              [:div {:style (merge {:display        "inline-block"
                                    :vertical-align "top"
@@ -20,14 +22,17 @@
                                   style)}
               children])})
 
-(def module-1 module)
-
 (def module-2
-  {:render (fn [input]
-             [module (update input :style merge {:width module-size-2})])})
+  {:name   "module-2"
+   :render (fn [{children :children
+                 style    :style}]
+             [module-1 {:style (merge style
+                                      {:width module-size-2})}
+              children])})
 
 (def showcase-1
-  {:render (fn [{children :children}]
+  {:name   "showcase-1"
+   :render (fn [{children :children}]
              [module-1 {:style {:height     module-size-1
                                 :background color/grey-200}}
               [:div {:style {:height          "100%"
@@ -38,7 +43,8 @@
                children]])})
 
 (def showcase-2
-  {:render (fn [{children :children}]
+  {:name   "showcase-2"
+   :render (fn [{children :children}]
              [module-2 {:style {:height     module-size-2
                                 :background color/grey-200}}
               [:div {:style {:height          "100%"
