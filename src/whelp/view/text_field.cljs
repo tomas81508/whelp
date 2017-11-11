@@ -151,7 +151,7 @@
   {:render (fn [{state-atom :state-atom}]
              [:div
               [:div
-               [doc/module-1 {:children
+               [doc/module-1
                 [:div {:style {:display        "flex"
                                :flex-direction "column"}}
                  [title "Text field"]
@@ -171,7 +171,7 @@
                          :value      (get-in @state-atom [:components :text-field :input :error-text])
                          :error-text (get-in @state-atom [:components :text-field :input :error-text])
                          :on-input   (fn [value]
-                                       (swap! state-atom assoc-in [:components :text-field :input :error-text] value))}]]}]
+                                       (swap! state-atom assoc-in [:components :text-field :input :error-text] value))}]]]
                [doc/showcase-1
                 [input {:width       "232px"
                         :value       (get-in @state-atom [:components :text-field :input :value])
