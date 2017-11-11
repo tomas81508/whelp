@@ -6,9 +6,10 @@
             [whelp.view.doc :as doc]))
 
 (defn overlay-span [pressed]
-  [:span {:style {:height           (if pressed "100%" "0%")
-                  :width            (if pressed "100%" "0%")
-                  :transition       "all 4500ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
+  [:span {:style {:height           "100%"
+                  :width            "100%"
+                  :transform (if pressed "scale(1)" "scale(0)")
+                  :transition       "all 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
                   :position         "absolute"
                   :top              "0px"
                   :left             "0px"
