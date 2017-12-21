@@ -11,9 +11,10 @@
                  margin          :margin
                  image           :image
                  primary-title   :primary-title
-                 supporting-text :supporting-text}]
-             [paper {:elevation 3
-                     :width width}
+                 supporting-text :supporting-text
+                 elevation       :elevation}]
+             [paper {:elevation (or elevation 3)
+                     :width     width}
               ;; An optional header
 
               ;; Rich media

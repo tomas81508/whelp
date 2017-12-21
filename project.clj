@@ -15,7 +15,7 @@
 
   :source-paths ["src"]
 
-;  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
+  ;  :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
   :cljsbuild {:builds
               [{:id           "dev"
@@ -42,8 +42,8 @@
                                :pretty-print  false}}]}
 
   :figwheel {;; :http-server-root "public" ;; default and assumes "resources"
-             ;; :server-port 3449 ;; default
-             ;; :server-ip "127.0.0.1"
+             :server-port 3448
+             :server-ip   "127.0.0.1"
              }
 
   :profiles {:dev {:dependencies  [[binaryage/devtools "0.9.4"]

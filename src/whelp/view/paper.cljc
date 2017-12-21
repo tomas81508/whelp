@@ -5,14 +5,14 @@
             [whelp.view.doc :as doc]))
 
 (def paper
-  {:name "paper"
-   :render (fn [{elevation    :elevation
-                 rounded  :rounded
-                 circle   :circle
-                 width    :width
-                 height   :height
-                 margin   :margin
-                 children :children}]
+  {:name   "paper"
+   :render (fn [{elevation :elevation
+                 rounded   :rounded
+                 circle    :circle
+                 width     :width
+                 height    :height
+                 margin    :margin
+                 children  :children}]
              (let [rounded (or rounded true)
                    circle (or circle false)]
                [:div {:style (merge {:color               "rgba(0, 0, 0, 0.87)"
