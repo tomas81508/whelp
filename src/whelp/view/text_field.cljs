@@ -19,11 +19,18 @@
                             value           :value
                             helper-text     :helper-text
                             width           :width
+                            color           :color
                             on-change       :on-change
                             on-click        :on-click
                             on-input        :on-input
                             :as             view-input}]
-                        (let [width (or width "200px")
+                        (let [primary-color (or (and color (:primary color))
+                                                (color/get-color nil :primary "A700"))
+                              secondary-color (or (and color (:secondary color))
+                                                  (color/get-color nil :primary "A500"))
+                              error-color (or (and color (:error color))
+                                              (color/get-color nil :red "A400"))
+                              width (or width "200px")
                               value? (and value (not= value ""))
                               error? (and error-text (not= error-text ""))
                               selected? (:selected view-state)
@@ -43,10 +50,10 @@
                                                    :user-select    "none"
                                                    :transition     "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"}
                                                   (cond error?
-                                                        {:color (color/get-color nil :red "A400")}
+                                                        {:color error-color}
 
                                                         selected?
-                                                        {:color (color/get-color nil :primary "A700")}
+                                                        {:color primary-color}
 
                                                         :else
                                                         {:color color/black-54%})
@@ -89,7 +96,7 @@
                                                                 :tap-highlight-color "transparent"
                                                                 :box-sizing          "border-box"
                                                                 :vertical-align      "bottom"
-                                                                :caret-color         (color/get-color nil :primary "A700")}
+                                                                :caret-color         primary-color}
                                                                (if value?
                                                                  {:color color/black-87%}
                                                                  {:color color/black-42%}))}
@@ -103,7 +110,7 @@
                                                   nil))]
                              (when icon-on-bar?
                                [:div {:style {:display          "inline-block"
-                                              :background-color "blue"
+                                              :background-color "orange"
                                               :height           "24px"
                                               :width            "24px"}}])]
                             [:div
@@ -128,7 +135,7 @@
                                                  :border-right        "none"
                                                  :border-bottom-style "solid"
                                                  :border-bottom-width "2px"
-                                                 :border-color        (color/get-color nil :primary "500")
+                                                 :border-color        secondary-color
                                                  :bottom              "0px"
                                                  :box-sizing          "content-box"
                                                  :margin              "0px"
@@ -139,7 +146,7 @@
                            (if error?
                              [:div {:style {:margin-top "8px"
                                             :font-size  "12px"
-                                            :color      (color/get-color nil :red "A400")}}
+                                            :color      error-color}}
                               (str "Error: " error-text)]
                              [:div {:style {:margin-top "8px"
                                             :font-size  "12px"

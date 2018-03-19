@@ -6,17 +6,18 @@
             [whelp.view.doc :as doc]))
 
 (defn overlay-span [pressed]
-  [:span {:style {:height           "100%"
-                  :width            "100%"
-                  :transform (if pressed "scale(1)" "scale(0)")
-                  :transition       "all 200ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
+  [:span {:style {:height           "500%"
+                  :width            "110%"
+                  :border-radius    "50%"
+                  :transform        (if pressed "scale(1)" "scale(0)")
+                  :transform-origin "50% 16px"
+                  :transition       "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms"
                   :position         "absolute"
-                  :top              "0px"
-                  :left             "0px"
+                  :top              (if pressed "-250%" "0")
+                  :left             "-5%"
                   :overflow         "hidden"
                   :pointer-events   "none"
                   :z-index          1
-                  :border-radius    "inherit"
                   :background-color "rgba(153, 153, 153, 0.72)"}}])
 
 (def button
@@ -52,6 +53,7 @@
                                                                  :text-align       "center"
                                                                  :min-width        "88px"
                                                                  :border-radius    "inherit"
+                                                                 :overflow         "hidden"
                                                                  :color            (if disabled color/black-26% color/black-87%)
                                                                  :font-size        (if dense "13px" "14px")
                                                                  :line-height      (if dense "32px" "36px")
